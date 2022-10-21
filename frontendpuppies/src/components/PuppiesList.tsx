@@ -10,13 +10,7 @@ const PuppiesList = ({ puppies }: PuppiesProps) => {
   return (
     <div className="flex flex-row flex-wrap">
       {puppies.map((puppy, key) => (
-        <BasePuppy
-          key={key}
-          name={puppy.name}
-          breed={puppy.breed}
-          description={puppy.description}
-          image={puppy.image}
-        />
+        <BasePuppy key={key} puppy={puppy} />
       ))}
     </div>
   );

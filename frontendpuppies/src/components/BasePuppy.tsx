@@ -1,19 +1,18 @@
 import React from "react";
+import { Puppy as IPuppy } from "../puppy.interface";
+import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
 
 interface BasePuppyProps {
-  name: string;
-  breed: string;
-  description: string;
-  image: string;
+  puppy: IPuppy;
 }
 
-const BasePuppy = ({ name, breed, description, image }: BasePuppyProps) => {
+const BasePuppy = ({ puppy }: BasePuppyProps) => {
   return (
     <div className="bg-white m-10">
-      <img src={image} />
-      <h2 className="text-2xl pt-4 px-4">{name}</h2>
-      <p className="italic px-4">{breed}</p>
-      <p className="p-4">{description}</p>
+      <img src={puppy.image} />
+      <h2 className="text-2xl pt-4 px-4">{puppy.name}</h2>
+      <p className="italic px-4">{puppy.breed}</p>
+      <p className="p-4">{puppy.description}</p>
     </div>
   );
 };
