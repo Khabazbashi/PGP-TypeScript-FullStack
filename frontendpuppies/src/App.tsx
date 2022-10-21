@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { FetchPuppies } from "./puppies.api";
-import { Puppy } from "./puppy.interface";
+import { Puppy as IPuppy } from "./puppy.interface";
 import PuppiesList from "./components/PuppiesList";
 import "./App.css";
 
 function App() {
-  const [puppies, setPuppies] = useState<Puppy[]>([]);
+  const [puppies, setPuppies] = useState<IPuppy[]>([]);
 
   useEffect(() => {
-    FetchPuppies<Puppy[]>("http://localhost:7000/api/puppies/").then(
+    FetchPuppies<IPuppy[]>("http://localhost:7000/api/puppies/").then(
       (puppies) => {
-        let puppiesList: Puppy[] = puppies;
+        let puppiesList: IPuppy[] = puppies;
         console.log(puppiesList);
         setPuppies(puppiesList);
       }

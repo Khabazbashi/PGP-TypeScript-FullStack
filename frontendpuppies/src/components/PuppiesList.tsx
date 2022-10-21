@@ -1,9 +1,9 @@
 import React from "react";
 import BasePuppy from "./BasePuppy";
-import { Puppy } from "../puppy.interface";
+import { Puppy as IPuppy } from "../puppy.interface";
 
 interface PuppiesProps {
-  puppies: Puppy[];
+  puppies: IPuppy[];
 }
 
 const PuppiesList = ({ puppies }: PuppiesProps) => {

@@ -1,5 +1,4 @@
 import React from "react";
-import { Puppy } from "../puppy.interface";
 
 interface BasePuppyProps {
   name: string;
