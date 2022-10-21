@@ -21,7 +21,7 @@ puppiesRouter.get("/", async (req: Request, res: Response) => {
 
     res.status(200).send(puppies);
   } catch (e) {
-    let errorMessage = "Failed to do something exceptional";
+    let errorMessage = "Something went wrong";
 
     if (e instanceof Error) {
       errorMessage = e.message;
@@ -44,7 +44,7 @@ puppiesRouter.get("/:id", async (req: Request, res: Response) => {
 
     res.status(404).send("item not found");
   } catch (e) {
-    let errorMessage = "Failed to do something exceptional";
+    let errorMessage = "Something went wrong";
 
     if (e instanceof Error) {
       errorMessage = e.message;
@@ -62,7 +62,7 @@ puppiesRouter.post("/", async (req: Request, res: Response) => {
 
     res.status(201).json(newPuppy);
   } catch (e) {
-    let errorMessage = "Failed to do something exceptional";
+    let errorMessage = "Something went wrong";
 
     if (e instanceof Error) {
       errorMessage = e.message;
@@ -89,7 +89,7 @@ puppiesRouter.put("/:id", async (req: Request, res: Response) => {
 
     res.status(201).json(newItem);
   } catch (e) {
-    let errorMessage = "Failed to do something exceptional";
+    let errorMessage = "Something went wrong";
 
     if (e instanceof Error) {
       errorMessage = e.message;
