@@ -8,19 +8,17 @@ interface PuppiesProps {
 
 const PuppiesList = ({ puppies }: PuppiesProps) => {
   return (
-    <React.Fragment>
-      <ul>
-        {puppies.map((puppy, key) => (
-          <BasePuppy
-            key={key}
-            name={puppy.name}
-            breed={puppy.breed}
-            description={puppy.description}
-            image={puppy.image}
-          />
-        ))}
-      </ul>
-    </React.Fragment>
+    <div className="flex flex-row flex-wrap">
+      {puppies.map((puppy, key) => (
+        <BasePuppy
+          key={key}
+          name={puppy.name}
+          breed={puppy.breed}
+          description={puppy.description}
+          image={puppy.image}
+        />
+      ))}
+    </div>
   );
 };
 

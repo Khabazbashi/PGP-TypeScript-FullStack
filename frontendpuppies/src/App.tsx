@@ -18,10 +18,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <PuppiesList puppies={puppies} />
-      </header>
+    <div className="flex flex-col min-h-screen w-screen	bg-[#282c34] items-center justify-center text-center">
+      <h1 className="font-mono text-6xl my-16 px-6">Happy Dogs</h1>
+      <PuppiesList puppies={puppies} />
     </div>
   );
 }
