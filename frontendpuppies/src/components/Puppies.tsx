@@ -21,7 +21,7 @@ const Puppies = ({ puppies, caller }: PuppiesProps) => {
     return (
       <div className="flex flex-col">
         <div className="grid grid-cols-11 font-bold px-5 place-content-between grow pb-4">
-          <p className="col-span-2 ">PuppyID</p>
+          <p className="col-span-2 text-center">Puppy ID</p>
           <p className="col-span-1">Name</p>
           <p className="col-span-2">Breed</p>
           <p className="col-span-5">Description</p>
