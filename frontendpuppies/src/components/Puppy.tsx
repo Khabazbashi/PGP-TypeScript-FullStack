@@ -1,5 +1,5 @@
 import React from "react";
-import { Puppy as IPuppy } from "../puppy.interface";
+import { Puppy as IPuppy } from "../interfaces/puppy.interface";
 import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
 
 interface BasePuppyProps {
