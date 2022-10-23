@@ -9,7 +9,7 @@ interface PuppiesProps {
 const Home = ({ puppies }: PuppiesProps) => {
   return (
     <React.Fragment>
-      <Puppies puppies={puppies} caller="home" />
+      <Puppies puppies={puppies} caller="remove" />
     </React.Fragment>
   );
 };

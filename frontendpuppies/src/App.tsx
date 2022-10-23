@@ -4,6 +4,7 @@ import { FetchPuppies } from "./puppies.api";
 import { Puppy as IPuppy } from "./interfaces/puppy.interface";
 import Home from "./views/HomeView";
 import CreatePuppyView from "./views/AddPuppyView";
+import RemovePuppyView from "./views/RemovePuppyView";
 
 function App() {
   const [puppies, setPuppies] = useState<IPuppy[]>([]);
@@ -47,20 +48,36 @@ function App() {
             </NavLink>
           </li>
           <li>
-            <a className="flex h-[100%] p-4">Remove Puppies</a>
+            <NavLink
+              className="flex h-[100%] p-4"
+              to="/RemovePuppy"
+              style={({ isActive }) => ({
+                background: isActive ? "#e0242d" : "#48261c",
+              })}
+            >
+              Remove Puppy
+            </NavLink>
           </li>
 
           <li>
-            <a className="flex h-[100%] p-4">Filter</a>
+            <a href="d" className="flex h-[100%] p-4">
+              Filter
+            </a>
           </li>
           <li>
-            <a className="flex h-[100%] p-4">Favorite Puppies</a>
+            <a href="d" className="flex h-[100%] p-4">
+              Favorite Puppies
+            </a>
           </li>
         </ul>
-        <div className="my-10">
+        <div className="my-10 w-full">
           <Routes>
             <Route path="/Home" element={<Home puppies={puppies} />} />
             <Route path="/AddPuppy" element={<CreatePuppyView />} />
+            <Route
+              path="/RemovePuppy"
+              element={<RemovePuppyView puppies={puppies} />}
+            />
           </Routes>
         </div>
       </div>
