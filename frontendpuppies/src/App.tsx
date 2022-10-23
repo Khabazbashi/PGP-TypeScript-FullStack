@@ -30,7 +30,7 @@ function App() {
               className="flex h-[100%] p-4"
               to="/Home"
               style={({ isActive }) => ({
-                background: isActive ? "#e0242d" : "#48261c",
+                background: isActive ? "#FF4500" : "#48261c",
               })}
             >
               Home
@@ -41,7 +41,7 @@ function App() {
               className="flex h-[100%] p-4"
               to="/AddPuppy"
               style={({ isActive }) => ({
-                background: isActive ? "#e0242d" : "#48261c",
+                background: isActive ? "#FF4500" : "#48261c",
               })}
             >
               Add Puppy
@@ -52,22 +52,11 @@ function App() {
               className="flex h-[100%] p-4"
               to="/RemovePuppy"
               style={({ isActive }) => ({
-                background: isActive ? "#e0242d" : "#48261c",
+                background: isActive ? "#FF4500" : "#48261c",
               })}
             >
               Remove Puppy
             </NavLink>
-          </li>
-
-          <li>
-            <a href="d" className="flex h-[100%] p-4">
-              Filter
-            </a>
-          </li>
-          <li>
-            <a href="d" className="flex h-[100%] p-4">
-              Favorite Puppies
-            </a>
           </li>
         </ul>
         <div className="my-10 w-full">
