@@ -8,7 +8,7 @@ interface PuppyListProps {
 
 const PuppiesList = ({ puppies }: PuppyListProps) => {
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap items-center justify-center">
       {puppies.map((puppy, key) => (
         <Puppy key={key} puppy={puppy} />
       ))}

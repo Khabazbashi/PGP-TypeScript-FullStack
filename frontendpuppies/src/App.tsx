@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FetchPuppies } from "./puppies.api";
-import { Puppy as IPuppy } from "./puppy.interface";
 import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
-import Home from "./Home";
-import AddPuppy from "./AddPuppy";
-import "./App.css";
-import PuppiesList from "./components/PuppiesList";
+import { FetchPuppies } from "./puppies.api";
+import { Puppy as IPuppy } from "./interfaces/puppy.interface";
+import Home from "./views/HomeView";
+import CreatePuppyView from "./views/AddPuppyView";
 
 function App() {
   const [puppies, setPuppies] = useState<IPuppy[]>([]);
@@ -14,7 +12,6 @@ function App() {
     FetchPuppies<IPuppy[]>("http://localhost:7000/api/puppies/").then(
       (puppies) => {
         let puppiesList: IPuppy[] = puppies;
-        console.log(puppiesList);
         setPuppies(puppiesList);
       }
     );
@@ -22,20 +19,48 @@ function App() {
 
   return (
     <HashRouter>
-      <div className="flex flex-col min-h-screen w-screen	bg-[#282c34] items-center justify-center text-center">
-        <h1 className="font-mono text-6xl my-16 px-6">Happy Dogs</h1>
-        <ul className="header">
+      <div className="App flex flex-col min-h-screen w-full bg-[#d9e3e0] items-center p-10 border-[20px] border-[#48261c]">
+        <h1 className="font-mono text-center text-4xl py-10 md:text-6xl md:pt-56 md:pb-10">
+          Happy Dogs
+        </h1>
+        <ul className="flex flex-wrap flex-row  w-full text-white font-bold bg-[#48261c]">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              className="flex h-[100%] p-4"
+              to="/Home"
+              style={({ isActive }) => ({
+                background: isActive ? "#e0242d" : "#48261c",
+              })}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/AddPuppy">Add Puppy</NavLink>
+            <NavLink
+              className="flex h-[100%] p-4"
+              to="/AddPuppy"
+              style={({ isActive }) => ({
+                background: isActive ? "#e0242d" : "#48261c",
+              })}
+            >
+              Add Puppy
+            </NavLink>
+          </li>
+          <li>
+            <a className="flex h-[100%] p-4">Remove Puppies</a>
+          </li>
+
+          <li>
+            <a className="flex h-[100%] p-4">Filter</a>
+          </li>
+          <li>
+            <a className="flex h-[100%] p-4">Favorite Puppies</a>
           </li>
         </ul>
-        <div className="content">
+        <div className="my-10">
           <Routes>
-            <Route path="/" element={<Home puppies={puppies} />} />
-            <Route path="/AddPuppy" element={<AddPuppy />} />
+            <Route path="/Home" element={<Home puppies={puppies} />} />
+            <Route path="/AddPuppy" element={<CreatePuppyView />} />
           </Routes>
         </div>
       </div>
