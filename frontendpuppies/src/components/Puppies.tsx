@@ -2,11 +2,11 @@ import React from "react";
 import Puppy from "./Puppy";
 import { Puppy as IPuppy } from "../interfaces/puppy.interface";
 
-interface PuppyListProps {
+interface PuppiesProps {
   puppies: IPuppy[];
 }
 
-const PuppiesList = ({ puppies }: PuppyListProps) => {
+const Puppies = ({ puppies }: PuppiesProps) => {
   return (
     <div className="flex flex-row flex-wrap items-center justify-center">
       {puppies.map((puppy, key) => (
@@ -16,4 +16,4 @@ const PuppiesList = ({ puppies }: PuppyListProps) => {
   );
 };
 
-export default PuppiesList;
+export default Puppies;

@@ -1,5 +1,5 @@
 import React from "react";
-import PuppyList from "../components/PuppyList";
+import Puppies from "../components/Puppies";
 import { Puppy as IPuppy } from "../interfaces/puppy.interface";
 
 interface PuppiesProps {
@@ -9,7 +9,7 @@ interface PuppiesProps {
 const Home = ({ puppies }: PuppiesProps) => {
   return (
     <React.Fragment>
-      <PuppyList puppies={puppies} />
+      <Puppies puppies={puppies} />
     </React.Fragment>
   );
 };
