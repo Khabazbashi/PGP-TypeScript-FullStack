@@ -9,8 +9,8 @@ interface BasePuppyProps {
 
 const ListPuppy = ({ puppy }: BasePuppyProps) => {
   const handleSubmit = () => {
+    console.log(puppy.id);
     RemovePuppy("http://localhost:7000/api/puppies/" + puppy.id);
-    window.location.reload();
   };
 
   return (
