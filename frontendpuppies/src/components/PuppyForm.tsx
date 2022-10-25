@@ -31,7 +31,7 @@ const PuppyForm = ({ onCreate }: FormProps) => {
     <form
       id="usrform"
       onSubmit={handleSubmit}
-      className="flex flex-col w-[50%]"
+      className="flex flex-col w-[90%] md:w-[50%]"
     >
       <label className="pb-2" htmlFor="name">
         Name

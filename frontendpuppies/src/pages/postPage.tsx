@@ -9,7 +9,9 @@ interface PostProps {
 const PostPuppy = ({ onCreate }: PostProps) => {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-3xl mt-20 mb-10 font-mono">Add a new puppy</h1>
+      <h1 className="text-3xl mt-5 md:mt-20 mb-10 font-mono">
+        Add a new puppy
+      </h1>
       <PuppyForm onCreate={onCreate} />
     </div>
   );

@@ -28,12 +28,12 @@ function App() {
 
   return (
     <Router>
-      <div className="App flex flex-col min-h-screen w-full bg-[#d9e3e0] items-center p-10 border-[20px] border-[#48261c]">
-        <h1 className="font-mono text-center text-4xl py-10 md:text-6xl md:pt-56 md:pb-10">
+      <div className="App flex flex-col min-h-screen w-full bg-[#d9e3e0] items-center md:p-10 border-[20px] border-[#48261c]">
+        <h1 className="font-mono text-center text-4xl py-20 md:text-6xl md:pt-56 md:pb-10">
           Happy Dogs
         </h1>
         <Navbar />
-        <div className="my-10 w-full">
+        <div className="my-10 w-full max-w-[100em]">
           <Routes>
             <Route path="/" element={<Home puppies={puppies} />} />
             <Route
