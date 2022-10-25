@@ -1,10 +1,10 @@
-export interface RequestPuppy {
+export interface IBasePuppy {
   name: string;
   breed: string;
   description: string;
   image: string;
 }
 
-export interface Puppy extends RequestPuppy {
+export interface IPuppy extends IBasePuppy {
   id: number;
 }
