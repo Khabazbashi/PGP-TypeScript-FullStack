@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CreatePuppy, FetchPuppies, RemovePuppy } from "./puppies.api";
 import { IPuppy, IBasePuppy } from "./interfaces/puppy.interface";
@@ -10,24 +10,21 @@ import Navbar from "./components/Navbar";
 function App() {
   const [puppies, setPuppies] = useState<IPuppy[]>([]);
 
+  const onDelete = useCallback((id: number) => {
+    RemovePuppy("http://localhost:7000/api/puppies/" + id);
+  }, []);
+
+  const onCreate = useCallback((postRequest: IBasePuppy) => {
+    CreatePuppy<IBasePuppy>("http://localhost:7000/api/puppies/", postRequest);
+  }, []);
+
   useEffect(() => {
     FetchPuppies<IPuppy[]>("http://localhost:7000/api/puppies/").then(
       (puppies) => {
         setPuppies(puppies);
       }
     );
-  }, [onDelete, onCreate]);
-
-  function onDelete(id: number) {
-    return RemovePuppy("http://localhost:7000/api/puppies/" + id);
-  }
-
-  function onCreate(postRequest: IBasePuppy) {
-    return CreatePuppy<IBasePuppy>(
-      "http://localhost:7000/api/puppies/",
-      postRequest
-    );
-  }
+  }, [puppies]);
 
   return (
     <Router>
