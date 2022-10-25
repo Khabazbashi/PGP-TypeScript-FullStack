@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import ListPuppy from "./ListPuppy";
 import { IPuppy } from "../interfaces/puppy.interface";
 import Titlebar from "./Titlebar";
