@@ -1,11 +1,11 @@
 import React from "react";
-import { Puppy as IPuppy } from "../interfaces/puppy.interface";
+import { IBasePuppy } from "../interfaces/puppy.interface";
 
-interface BasePuppyProps {
-  puppy: IPuppy;
+interface PuppyProps {
+  puppy: IBasePuppy;
 }
 
-const Puppy = ({ puppy }: BasePuppyProps) => {
+const Puppy = ({ puppy }: PuppyProps) => {
   return (
     <div className="flex flex-col bg-white m-10 h-96 w-80 max-h-96">
       <img

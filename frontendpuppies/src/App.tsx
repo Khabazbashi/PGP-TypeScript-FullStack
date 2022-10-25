@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, NavLink, HashRouter } from "react-router-dom";
-import { FetchPuppies } from "./puppies.api";
-import { Puppy as IPuppy } from "./interfaces/puppy.interface";
-import Home from "./views/HomeView";
-import CreatePuppyView from "./views/AddPuppyView";
-import RemovePuppyView from "./views/RemovePuppyView";
+import { Route, Routes, HashRouter } from "react-router-dom";
+import { CreatePuppy, FetchPuppies, RemovePuppy } from "./puppies.api";
+import { IPuppy, IBasePuppy } from "./interfaces/puppy.interface";
+import Home from "./pages/homePage";
+import PostPage from "./pages/postPage";
+import DeletePage from "./pages/deletePage";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [puppies, setPuppies] = useState<IPuppy[]>([]);
@@ -12,11 +13,21 @@ function App() {
   useEffect(() => {
     FetchPuppies<IPuppy[]>("http://localhost:7000/api/puppies/").then(
       (puppies) => {
-        let puppiesList: IPuppy[] = puppies;
-        setPuppies(puppiesList);
+        setPuppies(puppies);
       }
     );
-  }, []);
+  }, [onDelete, onCreate]);
+
+  function onDelete(id: number) {
+    return RemovePuppy("http://localhost:7000/api/puppies/" + id);
+  }
+
+  function onCreate(postRequest: IBasePuppy) {
+    return CreatePuppy<IBasePuppy>(
+      "http://localhost:7000/api/puppies/",
+      postRequest
+    );
+  }
 
   return (
     <HashRouter>
@@ -24,48 +35,17 @@ function App() {
         <h1 className="font-mono text-center text-4xl py-10 md:text-6xl md:pt-56 md:pb-10">
           Happy Dogs
         </h1>
-        <ul className="flex flex-wrap flex-row  w-full text-white font-bold bg-[#48261c]">
-          <li>
-            <NavLink
-              className="flex h-[100%] p-4"
-              to="/Home"
-              style={({ isActive }) => ({
-                background: isActive ? "#FF4500" : "#48261c",
-              })}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className="flex h-[100%] p-4"
-              to="/AddPuppy"
-              style={({ isActive }) => ({
-                background: isActive ? "#FF4500" : "#48261c",
-              })}
-            >
-              Add Puppy
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className="flex h-[100%] p-4"
-              to="/RemovePuppy"
-              style={({ isActive }) => ({
-                background: isActive ? "#FF4500" : "#48261c",
-              })}
-            >
-              Remove Puppy
-            </NavLink>
-          </li>
-        </ul>
+        <Navbar />
         <div className="my-10 w-full">
           <Routes>
             <Route path="/Home" element={<Home puppies={puppies} />} />
-            <Route path="/AddPuppy" element={<CreatePuppyView />} />
+            <Route
+              path="/AddPuppy"
+              element={<PostPage onCreate={onCreate} />}
+            />
             <Route
               path="/RemovePuppy"
-              element={<RemovePuppyView puppies={puppies} />}
+              element={<DeletePage puppies={puppies} onDelete={onDelete} />}
             />
           </Routes>
         </div>

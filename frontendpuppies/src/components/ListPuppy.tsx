@@ -1,16 +1,15 @@
 import React from "react";
-import { Puppy as IPuppy } from "../interfaces/puppy.interface";
-import { RemovePuppy } from "../puppies.api";
+import { IPuppy } from "../interfaces/puppy.interface";
 import TrashIcon from "../utils/trashcan.svg";
 
-interface BasePuppyProps {
+interface ListPuppyProps {
   puppy: IPuppy;
+  onDelete: (id: number) => void;
 }
 
-const ListPuppy = ({ puppy }: BasePuppyProps) => {
+const ListPuppy = ({ puppy, onDelete }: ListPuppyProps) => {
   const handleSubmit = () => {
-    console.log(puppy.id);
-    RemovePuppy("http://localhost:7000/api/puppies/" + puppy.id);
+    onDelete(puppy.id);
   };
 
   return (
